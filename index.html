@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Mike Tyson - Iron Mike</title>
+      <link rel="stylesheet" href="styles.css" />
+      <!-- Підключення CSS -->
+      <link rel="icon" href="logo.png" type="image/png" sizes="any" />
+      <link rel="icon" href="logo.png" type="image/png" sizes="32x32" />
+      <!-- Додавання фавіконки -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body>
+      <div class="container">
+         <div class="header">
+            <img src="ico7.png" alt="Logo" class="main-logo" />
+            <h1 class="title">IRON MIKE</h1>
+            <p class="slogan">
+               <span>EVERYONE</span>
+               <span>HAS</span>
+               <span>A</span>
+               <span>PLAN</span>
+            </p>
+         </div>
+
+         <div class="stats-container">
+            <div class="stat-item">
+               <span class="stat-number">50</span>
+               <span class="stat-label">WINS</span>
+            </div>
+            <div class="stat-item">
+               <span class="stat-number">44</span>
+               <span class="stat-label">KO</span>
+            </div>
+            <div class="stat-item">
+               <span class="stat-number">6</span>
+               <span class="stat-label">LOSSES</span>
+            </div>
+         </div>
+
+         <div class="contract-address">
+            <span class="label">SOLANA</span>
+            <span class="address"
+               >DRtqBBJvCJBBKHF4V3zeZ8ndQDT9nQJ4Q5XP8LhKzh6k</span
+            >
+         </div>
+
+         <div class="social-icons-left">
+            <a href="https://twitter.com/TheNotoriousMMA" target="_blank">
+               <img src="ico4.png" alt="Twitter" />
+            </a>
+            <a href="https://instagram.com/thenotoriousmma" target="_blank">
+               <img src="ico3.png" alt="Instagram" />
+            </a>
+         </div>
+
+         <div class="social-icons-right">
+            <a href="https://dextools.io/" target="_blank">
+               <img src="ico1.png" alt="Dextools" />
+            </a>
+            <a href="https://dexscreener.com/" target="_blank">
+               <img src="ico2.png" alt="Dexscreener" />
+            </a>
+         </div>
+
+         <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+         </div>
+
+         <div class="main-image"></div>
+      </div>
+
+      <div class="boxing-effects">
+         <div class="glove-effect"></div>
+         <div class="glove-effect"></div>
+         <div class="glove-effect"></div>
+         <div class="glove-effect"></div>
+         <div class="glove-effect"></div>
+      </div>
+
+      <div class="combat-aura"></div>
+
+      <div class="power-sparks">
+         <div class="spark"></div>
+         <div class="spark"></div>
+         <div class="spark"></div>
+         <div class="spark"></div>
+      </div>
+
+      <script>
+         document
+            .getElementById('progressText')
+            .addEventListener('click', function () {
+               const textToCopy = this.textContent;
+               navigator.clipboard
+                  .writeText(textToCopy)
+                  .then(() => {
+                     alert('Text copied to clipboard!');
+                  })
+                  .catch((err) => {
+                     console.error('Failed to copy text: ', err);
+                  });
+            });
+      </script>
+   </body>
+</html>

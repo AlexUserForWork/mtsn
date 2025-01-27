@@ -1,0 +1,1079 @@
+/* Скидання стилів */
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #000;
+   color: #fff;
+   font-family: Arial, sans-serif;
+   min-height: 100vh;
+   height: 100vh; /* фиксированная высота */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden; /* убираем скролл */
+}
+
+.container {
+   width: 100%;
+   max-width: 1200px;
+   text-align: center;
+   padding: 20px;
+   position: relative; /* добавляем для правильного позиционирования */
+   overflow: hidden; /* убираем скролл внутри контейнера */
+}
+
+.header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+}
+
+.main-logo {
+   width: 200px;
+   height: auto;
+   margin-bottom: 0;
+   filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
+   animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+   0%,
+   100% {
+      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
+   }
+   50% {
+      filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+   }
+}
+
+.title {
+   font-family: 'Black Ops One', cursive;
+   font-size: 6rem; /* Немного уменьшим размер из-за более жирного шрифта */
+   background: linear-gradient(45deg, #fff, #888);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   text-transform: uppercase;
+   margin: 20px 0;
+   animation: titlePunch 2s infinite;
+   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+   letter-spacing: 2px;
+}
+
+/* Единые стили для слогана */
+.slogan {
+   display: flex;
+   justify-content: center;
+   gap: 15px;
+   font-size: 70px; /* Уменьшим размер для баланса */
+   font-family: 'Black Ops One', cursive;
+   letter-spacing: 2px;
+   margin: 0;
+   margin-bottom: 20px;
+}
+
+.slogan span {
+   text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+   position: relative;
+   background: linear-gradient(
+      90deg,
+      #ffffff,
+      #666666,
+      #ffffff,
+      #999999,
+      #ffffff
+   );
+   background-size: 400% 100%;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   animation: gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow {
+   0% {
+      background-position: 0% 50%;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+   }
+   50% {
+      background-position: 100% 50%;
+      text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+   }
+   100% {
+      background-position: 0% 50%;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+   }
+}
+
+/* Обновляем задержки для каждого слова */
+.slogan span:nth-child(1) {
+   animation-delay: 0s;
+}
+.slogan span:nth-child(2) {
+   animation-delay: 0.4s;
+}
+.slogan span:nth-child(3) {
+   animation-delay: 0.8s;
+}
+.slogan span:nth-child(4) {
+   animation-delay: 1.2s;
+}
+
+/* Убираем подчеркивание при наведении */
+.slogan span::after {
+   display: none;
+}
+
+.progress-bar {
+   background-color: #444;
+   width: 80%;
+   max-width: 800px;
+   height: 50px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   position: relative;
+   overflow: hidden;
+}
+
+.progress-bar:hover {
+   background-color: #555;
+}
+
+.progress-bar::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+   );
+   transition: 0.5s;
+}
+
+.progress-bar:hover::before {
+   left: 100%;
+   transition: 0.5s;
+}
+
+.progress-text {
+   color: white;
+   font-size: 32px;
+   letter-spacing: 2px;
+   font-weight: bold;
+   transition: all 0.3s ease;
+}
+
+.progress-bar:hover .progress-text {
+   letter-spacing: 3px;
+}
+
+/* Обновляем стили для иконок */
+.icons {
+   display: none; /* Скрываем старый контейнер */
+}
+
+.social-icons-left {
+   position: fixed;
+   top: 30px;
+   left: 30px;
+   display: flex;
+   gap: 15px;
+   z-index: 1;
+}
+
+.social-icons-right {
+   position: fixed;
+   top: 30px;
+   right: 30px;
+   display: flex;
+   gap: 15px;
+   z-index: 1;
+}
+
+.social-icons-left img,
+.social-icons-right img {
+   width: 40px;
+   height: 40px;
+   transition: transform 0.2s;
+}
+
+.social-icons-left img:hover,
+.social-icons-right img:hover {
+   transform: scale(1.2);
+}
+
+/* Медиа-запросы для иконок */
+@media screen and (max-width: 768px) {
+   .social-icons-left,
+   .social-icons-right {
+      top: 20px;
+   }
+
+   .social-icons-left {
+      left: 20px;
+   }
+
+   .social-icons-right {
+      right: 20px;
+   }
+
+   .social-icons-left img,
+   .social-icons-right img {
+      width: 30px;
+      height: 30px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .social-icons-left,
+   .social-icons-right {
+      top: 15px;
+   }
+
+   .social-icons-left {
+      left: 15px;
+   }
+
+   .social-icons-right {
+      right: 15px;
+   }
+
+   .social-icons-left img,
+   .social-icons-right img {
+      width: 25px;
+      height: 25px;
+   }
+}
+
+@font-face {
+   font-family: 'GoodTimingBD'; /* Назва шрифту */
+   src: url('./GoodTimingBD.ttf') format('truetype'); /* Шлях до файлу */
+   font-weight: normal; /* За потреби можна додати інші варіанти */
+   font-style: normal;
+}
+h1 {
+   font-family: 'GoodTimingBD', sans-serif;
+}
+
+/* Добавляем медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+   .main-logo {
+      width: 150px;
+   }
+
+   .title {
+      font-size: 4rem;
+   }
+
+   .slogan {
+      font-size: 45px;
+      gap: 10px;
+   }
+
+   .progress-bar {
+      width: 90%;
+      height: 40px;
+   }
+
+   .progress-text {
+      font-size: 20px;
+   }
+
+   .icons {
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap; /* позволяет иконкам переноситься на новую строку */
+   }
+
+   .icons img {
+      width: 39px;
+      height: 39px;
+   }
+
+   .icons a:nth-child(3) img {
+      width: 52px;
+      height: auto;
+   }
+}
+
+/* Добавляем медиа-запрос для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+   .container {
+      padding: 10px;
+   }
+
+   .main-logo {
+      width: 120px;
+   }
+
+   .title {
+      font-size: 3rem;
+   }
+
+   .slogan {
+      font-size: 30px;
+      gap: 8px;
+   }
+
+   .progress-bar {
+      height: 35px;
+   }
+
+   .progress-text {
+      font-size: 16px;
+   }
+
+   .icons {
+      gap: 10px;
+   }
+
+   .icons img {
+      width: 33px;
+      height: 33px;
+   }
+
+   .icons a:nth-child(3) img {
+      width: 44px;
+      height: auto;
+   }
+}
+
+/* Добавляем контейнер для частиц */
+.particles {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   overflow: hidden;
+}
+
+/* Создаем частицы */
+.particle {
+   position: absolute;
+   width: 2px;
+   height: 2px;
+   background: linear-gradient(45deg, #fff, #888);
+   border-radius: 50%;
+   box-shadow: 0 0 10px #fff;
+}
+
+/* Генерируем 20 частиц с разными анимациями */
+@for $i from 1 through 20 {
+   .particle:nth-child(#{$i}) {
+      left: random(100) * 1%;
+      animation: particleFloat#{$i} #{random(15) + 10}s linear infinite;
+   }
+
+   @keyframes particleFloat#{$i} {
+      0% {
+         transform: translateY(-100%) rotate(0deg);
+         opacity: 0;
+      }
+      20% {
+         opacity: 0.5;
+      }
+      80% {
+         opacity: 0.5;
+      }
+      100% {
+         transform: translateY(100vh) rotate(360deg);
+         opacity: 0;
+      }
+   }
+}
+
+/* Удаляем старые анимации линий */
+.container::before,
+.container::after {
+   display: none; /* или можно полностью удалить этот блок кода */
+}
+
+/* Удаляем анимацию сканирующей линии */
+.scan-line {
+   display: none; /* или можно полностью удалить этот блок кода */
+}
+
+/* Удаляем связанные keyframes */
+@keyframes linePulse {
+   /* можно удалить полностью */
+}
+
+@keyframes scan {
+   /* можно удалить полностью */
+}
+
+/* Эффект боевого духа */
+.impact-wave {
+   display: none;
+}
+
+/* Эффект ударных следов */
+.strike-trails {
+   display: none;
+}
+
+/* Эффект энергетического поля */
+.energy-field {
+   display: none;
+}
+
+/* Эффект энергетических вспышек */
+.energy-flash {
+   display: none;
+}
+
+/* Эффект боевой ауры */
+.combat-aura {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(255, 215, 0, 0.05) 50%,
+      transparent 100%
+   );
+   animation: pulseAura 4s ease-in-out infinite;
+   z-index: -3;
+   pointer-events: none;
+}
+
+@keyframes pulseAura {
+   0%,
+   100% {
+      transform: scale(1);
+      opacity: 0.3;
+   }
+   50% {
+      transform: scale(1.2);
+      opacity: 0.1;
+   }
+}
+
+/* Медиа-запросы для анимаций */
+@media screen and (max-width: 768px) {
+   .wave {
+      display: none; /* Отключаем тяжелые анимации на мобильных */
+   }
+
+   .combat-aura {
+      opacity: 0.1;
+   }
+}
+
+/* Обновленные стили для статистики */
+.stats-container {
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   z-index: 1;
+}
+
+.stat-item {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   padding: 5px 15px;
+   background: transparent;
+   border: none;
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s ease;
+}
+
+.stat-number {
+   font-size: 4.5rem;
+   font-family: 'Black Ops One', cursive;
+   color: #fff;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   margin: 0;
+   line-height: 1;
+}
+
+.stat-label {
+   font-family: 'Black Ops One', cursive;
+   font-size: 1.2rem;
+   color: rgba(255, 255, 255, 0.7);
+   text-transform: uppercase;
+   margin: 0;
+   letter-spacing: 3px;
+}
+
+/* Убираем старые эффекты */
+.stat-item::before,
+.stat-label::after {
+   display: none;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+   .stats-container {
+      bottom: 20px;
+      right: 20px;
+      gap: 5px;
+   }
+
+   .stat-number {
+      font-size: 3.5rem;
+   }
+
+   .stat-label {
+      font-size: 1rem;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .stats-container {
+      bottom: 15px;
+      right: 15px;
+   }
+
+   .stat-number {
+      font-size: 2.8rem;
+   }
+
+   .stat-label {
+      font-size: 0.9rem;
+   }
+}
+
+/* Новая анимация для заголовка */
+@keyframes titlePunch {
+   0%,
+   100% {
+      transform: scale(1);
+   }
+   50% {
+      transform: scale(1.05);
+   }
+}
+
+/* Обновляем стили для боевой стойки */
+.fighting-stance {
+   position: fixed;
+   bottom: 20%;
+   right: -50px;
+   width: 600px;
+   height: 800px;
+   background: url('t1.jpg') no-repeat center/contain;
+   opacity: 0.15;
+   animation: stanceFloat 4s ease-in-out infinite;
+   z-index: -1;
+   filter: grayscale(100%) contrast(120%);
+}
+
+@keyframes stanceFloat {
+   0%,
+   100% {
+      transform: translateY(0) scale(1);
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+   }
+   50% {
+      transform: translateY(-20px) scale(1.02);
+      filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
+   }
+}
+
+/* Медиа-запросы для первого силуэта */
+@media screen and (max-width: 768px) {
+   .fighting-stance {
+      width: 400px;
+      height: 600px;
+      right: -100px;
+      bottom: 15%;
+      opacity: 0.1;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .fighting-stance {
+      width: 300px;
+      height: 450px;
+      right: -80px;
+      bottom: 10%;
+   }
+}
+
+/* Удаляем старые стили линий и добавляем новые эффекты */
+
+/* Эффект ударных следов */
+.strike-trails {
+   display: none;
+}
+
+/* Эффект энергетических вспышек */
+.energy-flash {
+   display: none;
+}
+
+/* Эффект энергетического поля */
+.energy-field {
+   display: none;
+}
+
+/* Эффект вспышек */
+.power-sparks {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   z-index: -3;
+   pointer-events: none;
+}
+
+.spark {
+   position: absolute;
+   width: 4px;
+   height: 4px;
+   background: #fff;
+   border-radius: 50%;
+   box-shadow: 0 0 10px #fff, 0 0 20px #888;
+   animation: sparkle 2s ease-in-out infinite;
+}
+
+.spark:nth-child(1) {
+   left: 20%;
+   top: 20%;
+   animation-delay: 0s;
+}
+.spark:nth-child(2) {
+   left: 80%;
+   top: 40%;
+   animation-delay: 0.3s;
+}
+.spark:nth-child(3) {
+   left: 40%;
+   top: 70%;
+   animation-delay: 0.6s;
+}
+.spark:nth-child(4) {
+   left: 60%;
+   top: 30%;
+   animation-delay: 0.9s;
+}
+
+@keyframes sparkle {
+   0%,
+   100% {
+      transform: scale(0);
+      opacity: 0;
+   }
+   50% {
+      transform: scale(1);
+      opacity: 0.7;
+   }
+}
+
+/* Медиа-запросы для оптимизации на мобильных устройствах */
+@media screen and (max-width: 768px) {
+   .strike {
+      width: 50px;
+   }
+
+   .energy-field {
+      opacity: 0.2;
+   }
+
+   .spark {
+      width: 2px;
+      height: 2px;
+   }
+}
+
+/* Добавляем стили для дополнительных силуэтов */
+.fighting-stance-2 {
+   position: fixed;
+   top: -150px;
+   left: -30px;
+   width: 500px;
+   height: 700px;
+   background: url('t2.jpg') no-repeat center/contain;
+   opacity: 0.12;
+   animation: stanceFloat2 5s ease-in-out infinite;
+   z-index: -1;
+   filter: grayscale(100%) contrast(120%);
+   transform: scaleX(-1);
+}
+
+.fighting-stance-3 {
+   position: fixed;
+   top: 30%;
+   left: 70%;
+   width: 400px;
+   height: 600px;
+   background: url('t5.jpg') no-repeat center/contain;
+   opacity: 0.1;
+   animation: stanceFloat3 6s ease-in-out infinite;
+   z-index: -1;
+   filter: grayscale(100%) contrast(120%);
+}
+
+@keyframes stanceFloat2 {
+   0%,
+   100% {
+      transform: translateY(0) scale(1) scaleX(-1);
+      filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.3));
+   }
+   50% {
+      transform: translateY(-15px) scale(1.01) scaleX(-1);
+      filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.4));
+   }
+}
+
+@keyframes stanceFloat3 {
+   0%,
+   100% {
+      transform: translateY(0) rotate(-5deg);
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+   }
+   50% {
+      transform: translateY(-10px) rotate(2deg);
+      filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
+   }
+}
+
+/* Медиа-запросы для дополнительных силуэтов */
+@media screen and (max-width: 768px) {
+   .fighting-stance-2 {
+      width: 300px;
+      height: 450px;
+      left: -50px;
+      top: -100px;
+      opacity: 0.08;
+   }
+
+   .fighting-stance-3 {
+      width: 250px;
+      height: 375px;
+      left: 50%;
+      top: 35%;
+      opacity: 0.08;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .fighting-stance-2 {
+      width: 200px;
+      height: 300px;
+      left: -30px;
+      top: -80px;
+   }
+
+   .fighting-stance-3 {
+      width: 180px;
+      height: 270px;
+      left: 40%;
+      top: 40%;
+   }
+}
+
+/* Добавляем четвертый силуэт */
+.fighting-stance-4 {
+   position: fixed;
+   bottom: 10%;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 450px;
+   height: 650px;
+   background: url('t4.jpg') no-repeat center/contain;
+   opacity: 0.12;
+   animation: stanceFloat4 5.5s ease-in-out infinite;
+   z-index: -1;
+   filter: grayscale(100%) contrast(120%);
+}
+
+/* Обновляем анимацию для четвертого силуэта */
+@keyframes stanceFloat4 {
+   0%,
+   100% {
+      transform: translateX(-50%) translateY(0) rotate(3deg);
+      filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.3));
+   }
+   50% {
+      transform: translateX(-50%) translateY(-12px) rotate(-2deg);
+      filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.4));
+   }
+}
+
+/* Обновляем медиа-запросы */
+@media screen and (max-width: 768px) {
+   .fighting-stance-4 {
+      width: 280px;
+      height: 420px;
+      left: 50%;
+      opacity: 0.08;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .fighting-stance-4 {
+      width: 200px;
+      height: 300px;
+      left: 50%;
+   }
+}
+
+/* Добавляем пятый силуэт */
+.fighting-stance-5 {
+   position: fixed;
+   bottom: -10%;
+   left: -20px;
+   width: 450px;
+   height: 650px;
+   background: url('t3.jpg') no-repeat center/contain;
+   opacity: 0.12;
+   animation: stanceFloat5 5s ease-in-out infinite;
+   z-index: -1;
+   filter: grayscale(100%) contrast(120%);
+}
+
+/* Добавляем анимацию для пятого силуэта */
+@keyframes stanceFloat5 {
+   0%,
+   100% {
+      transform: translateY(0) rotate(-2deg);
+      filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.3));
+   }
+   50% {
+      transform: translateY(-10px) rotate(1deg);
+      filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.4));
+   }
+}
+
+/* Обновляем медиа-запросы для пятого силуэта */
+@media screen and (max-width: 768px) {
+   .fighting-stance-5 {
+      width: 280px;
+      height: 420px;
+      left: -10px;
+      bottom: -8%;
+      opacity: 0.08;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .fighting-stance-5 {
+      width: 200px;
+      height: 300px;
+      left: -5px;
+      bottom: -5%;
+   }
+}
+
+/* Удаляем старые стили силуэтов */
+.fighting-stance,
+.fighting-stance-2,
+.fighting-stance-3,
+.fighting-stance-4,
+.fighting-stance-5 {
+   display: none;
+}
+
+/* Добавляем новый стиль для основного изображения */
+.main-image {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: url('t5.jpg') no-repeat center center;
+   background-size: cover;
+   opacity: 0.15;
+   filter: grayscale(100%) contrast(120%);
+   z-index: -1;
+   animation: imageFloat 6s ease-in-out infinite;
+}
+
+@keyframes imageFloat {
+   0%,
+   100% {
+      transform: scale(1);
+      filter: grayscale(100%) contrast(120%) brightness(1);
+   }
+   50% {
+      transform: scale(1.02);
+      filter: grayscale(100%) contrast(130%) brightness(1.1);
+   }
+}
+
+/* Обновляем медиа-запросы */
+@media screen and (max-width: 768px) {
+   .main-image {
+      opacity: 0.12;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .main-image {
+      opacity: 0.1;
+   }
+}
+
+/* Обновляем стили для боксерских эффектов */
+.boxing-effects {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: -2;
+   pointer-events: none;
+}
+
+.glove-effect {
+   position: absolute;
+   width: 45px;
+   height: 45px;
+   background: url('icons8-boxing-glove-53.png') no-repeat center/contain;
+   opacity: 0;
+   filter: brightness(0) invert(1) opacity(0.4);
+   animation: gloveStrike 4s ease-out infinite;
+}
+
+.glove-effect:nth-child(1) {
+   left: 20%;
+   top: 30%;
+   animation-delay: 0s;
+   transform: rotate(25deg);
+}
+
+.glove-effect:nth-child(2) {
+   right: 25%;
+   top: 40%;
+   animation-delay: 1.5s;
+   transform: rotate(-15deg);
+}
+
+.glove-effect:nth-child(3) {
+   left: 35%;
+   top: 25%;
+   animation-delay: 0.8s;
+   transform: rotate(45deg);
+}
+
+.glove-effect:nth-child(4) {
+   right: 30%;
+   top: 50%;
+   animation-delay: 2.3s;
+   transform: rotate(-35deg);
+}
+
+.glove-effect:nth-child(5) {
+   left: 30%;
+   top: 45%;
+   animation-delay: 3.2s;
+   transform: rotate(15deg);
+}
+
+@keyframes gloveStrike {
+   0% {
+      transform: scale(0.3) translateX(0) translateY(0);
+      opacity: 0;
+   }
+   15% {
+      opacity: 0.25;
+      filter: brightness(0) invert(1) opacity(0.4)
+         drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+   }
+   100% {
+      transform: scale(1.2) translateX(200px) translateY(-100px);
+      opacity: 0;
+      filter: brightness(0) invert(1) opacity(0.2)
+         drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+   }
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 768px) {
+   .glove-effect {
+      width: 35px;
+      height: 35px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .glove-effect {
+      width: 25px;
+      height: 25px;
+   }
+}
+
+/* Добавляем стили для адреса контракта */
+.contract-address {
+   position: fixed;
+   bottom: 30px;
+   left: 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   z-index: 1;
+}
+
+.contract-address .label {
+   font-family: 'Black Ops One', cursive;
+   font-size: 1.2rem;
+   color: rgba(255, 255, 255, 0.7);
+   letter-spacing: 3px;
+   margin-bottom: 5px;
+}
+
+.contract-address .address {
+   font-family: monospace;
+   font-size: 1rem;
+   color: #fff;
+   background: rgba(255, 255, 255, 0.1);
+   padding: 8px 12px;
+   border-radius: 4px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.contract-address .address:hover {
+   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+   .contract-address {
+      bottom: 20px;
+      left: 20px;
+   }
+
+   .contract-address .label {
+      font-size: 1rem;
+   }
+
+   .contract-address .address {
+      font-size: 0.9rem;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .contract-address {
+      bottom: 15px;
+      left: 15px;
+   }
+
+   .contract-address .label {
+      font-size: 0.9rem;
+   }
+
+   .contract-address .address {
+      font-size: 0.8rem;
+   }
+}
