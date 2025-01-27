@@ -884,7 +884,7 @@ h1 {
    display: none;
 }
 
-/* Добавляем новый стиль для основного изображения */
+/* Обновляем стили для основного изображения */
 .main-image {
    position: fixed;
    top: 0;
@@ -899,6 +899,25 @@ h1 {
    animation: imageFloat 6s ease-in-out infinite;
 }
 
+/* Обновляем медиа-запросы для изображения */
+@media screen and (max-width: 768px) {
+   .main-image {
+      opacity: 0.2;
+      background-position: 70% 0%; /* Подняли до самого верха */
+      background-size: 150% auto; /* Увеличили размер изображения */
+      filter: grayscale(100%) contrast(130%) brightness(1.1);
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .main-image {
+      opacity: 0.25;
+      background-position: 75% 0%; /* Подняли до самого верха */
+      background-size: 180% auto; /* Еще больше увеличили размер */
+      filter: grayscale(100%) contrast(140%) brightness(1.2);
+   }
+}
+
 @keyframes imageFloat {
    0%,
    100% {
@@ -911,16 +930,18 @@ h1 {
    }
 }
 
-/* Обновляем медиа-запросы */
+/* Обновляем анимацию для мобильных устройств */
 @media screen and (max-width: 768px) {
-   .main-image {
-      opacity: 0.12;
-   }
-}
-
-@media screen and (max-width: 480px) {
-   .main-image {
-      opacity: 0.1;
+   @keyframes imageFloat {
+      0%,
+      100% {
+         transform: scale(1);
+         filter: grayscale(100%) contrast(130%) brightness(1.1);
+      }
+      50% {
+         transform: scale(1.02);
+         filter: grayscale(100%) contrast(140%) brightness(1.2);
+      }
    }
 }
 
